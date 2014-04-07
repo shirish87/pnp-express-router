@@ -1,0 +1,19 @@
+{
+  "name": "pnp-express-router",
+  "version": "1.0.0",
+  "description": "Express router with pluggable components",
+  "main": "lib/pnp-express-router.js",
+  "scripts": {
+    "test": "DEBUG=pnp-express,plugger,hooker,plugin* mocha --reporter spec"
+  },
+  "author": "Shirish Kamath",
+  "license": "MIT",
+  "dependencies": {
+    "plugger": "^1.0.0",
+    "debug": "^0.8.0"
+  },
+  "devDependencies": {
+    "pnp-express": "^1.0.0",
+    "convict": "^0.4.2"
+  }
+}

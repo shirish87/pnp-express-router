@@ -1,4 +1,6 @@
-pnp-express
-============
+pnp-express-router
+===================
 
-Express app with pluggable components
+Express router with pluggable components
+
+*Not quite ready for public release yet.*

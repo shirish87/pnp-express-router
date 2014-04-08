@@ -9,8 +9,9 @@
   "author": "Shirish Kamath",
   "license": "MIT",
   "dependencies": {
-    "plugger": "^0.1.0",
-    "debug": "^0.8.0"
+    "debug": "^0.8.0",
+    "methods": "^0.1.0",
+    "plugger": "^0.1.0"
   },
   "devDependencies": {
     "pnp-express": "^0.1.0",

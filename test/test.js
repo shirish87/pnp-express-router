@@ -29,6 +29,7 @@ describe("Functionality", function () {
 
         var routeLoader = new RouteLoader(config, app, routeOptions);
         routeLoader.init();
+        routeLoader.debug();
     });
 
 });

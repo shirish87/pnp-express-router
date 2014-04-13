@@ -4,30 +4,50 @@ var RouteLoader = require('../index')
   , path = require('path')
 
 
+var config = {
+    config: true
+};
+
+var app = function (done) {
+    return {
+        get: function (path, callback) {
+            if (path === '/') {
+                this.get = function () {};
+                done();
+            }
+        }
+    };
+};
+
+var plugins = [{
+    path: path.resolve('./test/routes')
+}];
+
+
+
 describe("Functionality", function () {
     // TODO: More tests
 
     it("Loads routes", function (done) {
-        var config = { config: true };
-
-        var app = {
-            get: function (path, callback) {
-                if (path === '/') {
-                    app.get = function () {};
-                    done();
-                }
-            }
-        };
-
-        var plugins = [{
-            path: path.resolve('./test/routes')
-        }];
-
         var routeOptions = {
             plugins: plugins
         };
 
-        var routeLoader = new RouteLoader(config, app, routeOptions);
+        var routeLoader = new RouteLoader(config, app(done), routeOptions);
+        routeLoader.init();
+        routeLoader.debug();
+    });
+
+
+    it("Loads routes (lazy)", function (done) {
+
+        var routeOptions = {
+            plugins: []
+        };
+
+        var routeLoader = new RouteLoader(config, app(done), routeOptions);
+        routeLoader.addRoute(plugins[0]);
+
         routeLoader.init();
         routeLoader.debug();
     });
